@@ -1,98 +1,3 @@
-![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
-
-# Mongoose Vampires
-
-For this two part homework assignment, you will be using some  mongoose commands and you will be **reading documentation**  to find **new** queries/techniques to complete the following activities. Researching queries and implementing them is a big part of this homework!
-
-![mongoose](https://s-media-cache-ak0.pinimg.com/564x/ee/b7/a9/eeb7a99383582d53e65ffcc0e4a225bd.jpg)
-
-# Resources
-Utilize the following resources to research the commands you will need:
-- Your notes from today
-- [MongoDB Manual](https://docs.mongodb.org/manual/reference/operator/query/#query-selectors)
-- [Mongoose Docs](http://mongoosejs.com/docs/guide.html)
-
-
-## Setup
-
-1. Fork and clone this repo, which includes:
-
-  - A folder for your `vampire_app`.
-
-  - A file for writing your app called `app.js`. You will write your code in here (even for the database).
-
-  - Don't forget to install dependencies: `npm i`
-
-**Comment out each database query** once you get it working so that you're only running **one at a time**. This is where we will be looking for your work after you turn it in.
-
-- A file called `populateVampires.js` that includes data on vampires that you will add (later).
-
-2. Install `mongoose` with `npm`.  Require it in `app.js`.
-
-## What is a schema?
-
-A schema is a way to organize, ahead of time, what a group of data is going to look like. This can be at various levels of a database depending on what kind of databases you are using.
-
-Mongo, is schema-less on the database level. It doesn't care what the data looks like and will take in virtually anything as long as it's syntactically correct.
-
-## Why they are important?
-
-Even when you are using MongoDB, an inherently schema-less database, a schema can be very helpful. It helps control what is going into the database so that you can both know what is going into it, and to make validations. Note that with MongoDB, even if a piece of data is not a part of your original schema, you can still store it.
-
-## Mongoose
-
-This is where mongoose comes in. Instead of manually making sure everything we are putting into our database makes sense and conforms to some type of structure, Mongoose allows us to define schemas.
-
-Mongoose, in the background, can enforce these schemas (as strictly as you like) in order to make sense of the data going into the database and to allow validation. It provides powerful and simple to use tools to do this.
-
-
-## Building a Schema
-
-Lets design a schema using mongoose and then use it to create some documents and eventually query for those documents.
-
-1. Create a folder inside your `vampire_app` called `models`.
-
-2. Create a file inside your `models` folder called `vampire.js` (**singular**). You will create your schema and model in this file.
-
-3. Look back at the class notes to see how to start your schema; use the `Article` model as a guide.
-
-A typical object in our vampire collection will look something like this:
-
-``` javascript
-const vampire = {
-  name: 'Count Chocula',
-  hair_color: 'brown',
-  eye_color: 'brown',
-  dob: new Date(1971, 2, 13, 7, 47),
-  loves: ['cereal','marshmallows'],
-  location: 'Minneapolis, Minnesota, US',
-  gender: 'm',
-  victims: 2,
-}
-```
-
-4. Build a vampire **schema** and **model** that matches the object above. Export your model.
-
->Pause. Take a minute to do a little research and come up with an answer to this question: What's the difference between a _Schema_ and a _Model_?
-
-5. Go to the Mongoose documentation to learn more about validations and defaults: http://mongoosejs.com/docs/api.html
-
-6. The **name field is required**, so make sure that the schema accommodates for that.
-
-7. Also, **no vampire will have less than 0 victims**, so add that into the schema as a validation.
-
-8. Lastly, set the **default value of the hair color to blonde**.
-
-9. Set up your `app.js` file to connect to your `vampires` database.
-
-10. If you like, you may now try testing your schema with the automated tests by running `npm test` in your terminal.
-
-
-<hr>
-&#x1F534; Commit. Suggested message: "made a schema"
-<hr>
-
-
 ## Add the vampire data that we gave you
 
 There's an array of "vampire" JavaScript objects in `populateVampires.js`, and we need to add them add the vampires to a mongoDB vampires collection.
@@ -111,12 +16,7 @@ If you're stuck, click below
 
 <details>
 
-```javascript
-Vampire.collection.insertMany(vampireData, (err, data) => {
-  console.log("added provided vampire data")
-  mongoose.connection.close();
-});
-```
+
 
 </details>
 
