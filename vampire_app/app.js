@@ -124,18 +124,45 @@ let vamps = [
 //     error ? console.log(error) : console.log(strange);
 //     process.exit();
 // })
-// 4. have red hair or green eyes
-Vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]}, (error, emerald) => {
-    error ? console.log(error) : console.log(emerald);
+// // 4. have red hair or green eyes
+// Vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]}, (error, emerald) => {
+//     error ? console.log(error) : console.log(emerald);
+//     process.exit();
+// })
+
+
+//### Select objects that match one of several values
+
+// ### 6\. Select objects that match one of several values
+// Select all the vampires that:
+
+// // 1. love either frilly shirtsleeves or frilly collars
+// Vampire.find({$or: [{loves: {$in: 'frilly shirtsleeves'}}, {loves: {$in: 'frilly collars'}}]}, (error, frillies) => {
+//     error ? console.log(error) : console.log(frillies);
+//     process.exit();
+// })
+// // 2. love brooding
+// Vampire.find({loves: {$in: 'brooding'}}, (error, brooder) => {
+//     error ? console.log(error) : console.log(brooder);
+//     process.exit();
+// })
+// // 3. love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+// Vampire.find({$or: [{loves: {$in: 'appearing innocent'}},
+// {loves: {$in: 'trickery'}},
+// {loves: {$in: 'lurking in rotting mansions'}},
+// {loves: {$in: 'R&B music'}}]}, (error, faves) => {
+//     error ? console.log(error) : console.log(faves);
+//     process.exit();
+// })
+// 4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+Vampire.find({$and: [{loves: {$in: 'fancy cloaks'}}, {loves: {$nin: 'top hats'}}, {loves: {$nin: 'virgin blood'}}]}, (error, particulars) => {
+    error ? console.log(error) : console.log(particulars);
     process.exit();
 })
 
 // <hr>
-// &#x1F534;  Commit. Suggested message: "selected more vampires with OR"
-// <hr>
-/////////////////////////////////////////////////
-//### Select objects that match one of several values
-
+// &#x1F534;  Commit. Suggested message: "selected even more vampires"
+// <hr></hr>
 /////////////////////////////////////////////////
 //### Negative Selection
 
