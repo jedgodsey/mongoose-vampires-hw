@@ -192,16 +192,13 @@ let vamps = [
 // })
 
 
-// ## 8\. Replace
+// // ## 8\. Replace
 
 // 1. Replace the vampire called 'Claudia' with a vampire called 'Eve'. 
-Vampire.findOneAndUpdate({name: 'Claudia'}, {$set: {name: 'Eve'}}, {new: true}, (error, eveRecord) => {
+Vampire.replaceOne({name: 'Claudia'}, {name: 'Eve'}, (error, eveRecord) => {
     error ? console.log(error) : console.log(eveRecord);
     process.exit();
 })
-// <hr>
-// &#x1F534;  Commit. Suggested message: "replaced vampire data"
-// <hr>
 
 // ## 9\. Update
 
