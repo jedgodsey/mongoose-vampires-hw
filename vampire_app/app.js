@@ -185,19 +185,20 @@ let vamps = [
 //     process.exit();
 // })
 
-// 5. have not killed more than 200 people
-Vampire.find({victims: {$lte: 200}}, (error, nonProlifics) => {
-    error ? console.log(error) : console.log(nonProlifics);
-    process.exit();
-})
+// // 5. have not killed more than 200 people
+// Vampire.find({victims: {$lte: 200}}, (error, nonProlifics) => {
+//     error ? console.log(error) : console.log(nonProlifics);
+//     process.exit();
+// })
 
-// <hr>
-// &#x1F534;  Commit. Suggested message: "used negative selections on vampire data"
-// <hr>
 
 // ## 8\. Replace
 
 // 1. Replace the vampire called 'Claudia' with a vampire called 'Eve'. 
+Vampire.findOneAndUpdate({name: 'Claudia'}, {$set: {name: 'Eve'}}, {new: true}, (error, eveRecord) => {
+    error ? console.log(error) : console.log(eveRecord);
+    process.exit();
+})
 // <hr>
 // &#x1F534;  Commit. Suggested message: "replaced vampire data"
 // <hr>
