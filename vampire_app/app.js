@@ -154,32 +154,73 @@ let vamps = [
 //     error ? console.log(error) : console.log(faves);
 //     process.exit();
 // })
-// 4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-Vampire.find({$and: [{loves: {$in: 'fancy cloaks'}}, {loves: {$nin: 'top hats'}}, {loves: {$nin: 'virgin blood'}}]}, (error, particulars) => {
-    error ? console.log(error) : console.log(particulars);
+// // 4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+// Vampire.find({$and: [{loves: {$in: 'fancy cloaks'}}, {loves: {$nin: 'top hats'}}, {loves: {$nin: 'virgin blood'}}]}, (error, particulars) => {
+//     error ? console.log(error) : console.log(particulars);
+//     process.exit();
+// })
+
+// ### 7\. Negative Selection
+// Select all vampires that:
+
+// // 1. love ribbons but do not have brown eyes
+// Vampire.find({$and: [{loves: {$in: 'ribbons'}}, {eye_color: {$ne: 'brown'}}]}, (error, data) => {
+//     error ? console.log(error) : console.log(data);
+//     process.exit();
+// })
+// // 2. are not from Rome
+// Vampire.find({location: {$ne: 'Rome'}}, (error, nonRomans) => {
+//     error ? console.log(error) : console.log(nonRomans);
+//     process.exit();
+// })
+// // 3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find({$and: [
+//     {loves: {$nin: 'fancy cloaks'}},
+//     {loves: {$nin: 'frilly shirtsleeves'}},
+//     {loves: {$nin: 'appearing innocent'}},
+//     {loves: {$nin: 'being tragic'}},
+//     {loves: {$nin: 'brooding'}}
+// ]}, (error, data) => {
+//     error ? console.log(error) : console.log(data);
+//     process.exit();
+// })
+
+// 5. have not killed more than 200 people
+Vampire.find({victims: {$lte: 200}}, (error, nonProlifics) => {
+    error ? console.log(error) : console.log(nonProlifics);
     process.exit();
 })
 
 // <hr>
-// &#x1F534;  Commit. Suggested message: "selected even more vampires"
-// <hr></hr>
-/////////////////////////////////////////////////
-//### Negative Selection
+// &#x1F534;  Commit. Suggested message: "used negative selections on vampire data"
+// <hr>
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// ## REPLACE
+// ## 8\. Replace
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// ## UPDATE
+// 1. Replace the vampire called 'Claudia' with a vampire called 'Eve'. 
+// <hr>
+// &#x1F534;  Commit. Suggested message: "replaced vampire data"
+// <hr>
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// ## REMOVE
+// ## 9\. Update
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
+// 2. Update 'Eve' to have a gender of 'm'
+// 5. Rename 'Eve's' name field to 'moniker'
+// 6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
+
+// <hr>
+// &#x1F534;  Commit. Suggested message: "updated vampire data"
+// <hr>
+
+// ## 10\. Remove
+
+// 1. Remove a single document wherein the hair_color is 'brown'
+// 2. We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+
+
+// <hr>
+// &#x1F534;  Commit. Suggested message: "remove vampire data"
+// <hr>
 
 // ## HUNGRY FOR MORE
 /////////////////////////////////////////////////
