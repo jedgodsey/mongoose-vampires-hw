@@ -215,25 +215,28 @@ let vamps = [
 //     error ? console.log(error) : console.log(updatedVamp);
 //     process.exit();
 // })
-// 6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
-Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (error, fems) => {
-    error ? console.log(error) : console.log(fems);
-})
+// // 6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
+// Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (error, fems) => {
+//     error ? console.log(error) : console.log(fems);
+// })
 
-Vampire.find({gender: 'fems'}, (error, test) => {
-    error ? console.log(error) : console.log(test);
-    process.exit();
-})
-
-// <hr>
-// &#x1F534;  Commit. Suggested message: "updated vampire data"
-// <hr>
+// Vampire.find({gender: 'fems'}, (error, test) => {
+//     error ? console.log(error) : console.log(test);
+//     process.exit();
+// })
 
 // ## 10\. Remove
 
-// 1. Remove a single document wherein the hair_color is 'brown'
+// // 1. Remove a single document wherein the hair_color is 'brown'
+// Vampire.findOneAndDelete({hair_color: 'brown'}, (error, deleted) => {
+//     error ? console.log(error) : console.log(deleted);
+//     process.exit();
+// })
 // 2. We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
-
+Vampire.deleteMany({eye_color: 'blue'}, (error, blues) => {
+    error ? console.log(error) : console.log(blues);
+    process.exit();
+})
 
 // <hr>
 // &#x1F534;  Commit. Suggested message: "remove vampire data"
