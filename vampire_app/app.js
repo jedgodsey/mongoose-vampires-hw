@@ -192,19 +192,38 @@ let vamps = [
 // })
 
 
-// // ## 8\. Replace
+// ## 8\. Replace
 
-// 1. Replace the vampire called 'Claudia' with a vampire called 'Eve'. 
-Vampire.replaceOne({name: 'Claudia'}, {name: 'Eve'}, (error, eveRecord) => {
-    error ? console.log(error) : console.log(eveRecord);
-    process.exit();
+// // 1. Replace the vampire called 'Claudia' with a vampire called 'Eve'. 
+// Vampire.replaceOne({name: 'Claudia'}, {name: 'Eve'}, (error, eveRecord) => {
+//     error ? console.log(error) : process.exit();
+// })
+
+// // ## 9\. Update
+
+// // 2. Update 'Eve' to have a gender of 'm'
+// Vampire.findOneAndUpdate({name: 'Eve'},
+// {$set: {gender: 'm'}},
+// {new: true}, (error, updatedVamp) => {
+//     error ? console.log(error) : console.log(updatedVamp);
+//     process.exit();
+// })
+// // 5. Rename 'Eve's' name field to 'moniker'
+// Vampire.findOneAndUpdate({name: 'Eve'},
+// {$rename: {name: 'moniker'}},
+// {new: true}, (error, updatedVamp) => {
+//     error ? console.log(error) : console.log(updatedVamp);
+//     process.exit();
+// })
+// 6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
+Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (error, fems) => {
+    error ? console.log(error) : console.log(fems);
 })
 
-// ## 9\. Update
-
-// 2. Update 'Eve' to have a gender of 'm'
-// 5. Rename 'Eve's' name field to 'moniker'
-// 6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
+Vampire.find({gender: 'fems'}, (error, test) => {
+    error ? console.log(error) : console.log(test);
+    process.exit();
+})
 
 // <hr>
 // &#x1F534;  Commit. Suggested message: "updated vampire data"
